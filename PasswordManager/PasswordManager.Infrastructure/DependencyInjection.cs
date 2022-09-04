@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PasswordManager.Application.Common;
 using PasswordManager.Infrastructure.Persistence;
 using System;
 using System.Collections.Generic;
@@ -20,8 +21,8 @@ namespace PasswordManager.Infrastructure
             configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
-            //services.AddScoped<ApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
 
+            services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
             return services;
         }
     }

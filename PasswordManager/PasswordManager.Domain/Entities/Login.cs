@@ -9,6 +9,12 @@ namespace PasswordManager.Domain.Entities
 {
     public class Login : AuditableEntity
     {
+        public Login(string username , string password)
+        {
+            UserName = username;
+            Password = password;
+        }
+
         public int Id { get; set; }
 
         public string UserName { get; set; }
