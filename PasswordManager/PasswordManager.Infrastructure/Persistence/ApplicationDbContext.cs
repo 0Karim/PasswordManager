@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PasswordManager.Application.Common;
 using PasswordManager.Domain.Common;
 using PasswordManager.Domain.Entities;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace PasswordManager.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext , IApplicationDbContext
     {
         public ApplicationDbContext()
         {
